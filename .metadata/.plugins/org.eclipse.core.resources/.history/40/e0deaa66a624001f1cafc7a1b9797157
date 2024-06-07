@@ -1,0 +1,157 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<c:set var="path2" value="${pageContext.servletContext.contextPath }" />
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>향수</title>
+    <style>
+        main { margin-top: 100px; }
+        .fr-carousel {
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .fr-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+        .fr-cell {
+            flex: 0 0 auto;
+            width: 180px;
+            overflow: hidden;
+        }
+        .fr-cell img {
+            width: 100%;
+            height: auto;
+            transition: 0.5s;
+        }
+        .button-container {
+            display: none;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .fr-carousel {
+                display: flex;
+                justify-content: center;
+            }
+            .button-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+            .fr-cell {
+                width: 25%; /* 4개 열로 표시 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <header>
+            <jsp:include page="../include/header.jsp"></jsp:include>
+        </header>
+        <main>
+            <section id="topmain">
+                <div class="text25">향수</div>
+                <div>
+                    <p>이솝의 바디와 핸드 제품은 효과적인 클렌징, 수분 공급, 퍼스널 케어에 따른 고민 완화 등 일상적일 수 있는 경험을 한층 풍성하게 만들어줍니다.</p>
+                </div>
+            </section>
+            <section id="categorysection">
+                <div id="category-All">모든 향수</div>
+                <nav id="categorylist">
+                    <ul>
+                        <li><a href="">플로럴</a></li>
+                        <li><a href="">프레쉬</a></li>
+                        <li><a href="">우디</a></li>
+                        <li><a href="">오퓰런트</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <section id="mainsection">
+                <div id="explore_wrap">
+                    <div class="tex25">유형별 제품 탐색하기</div>
+                    <div id="explore">
+                        <div class="ex-item">
+                            <img src="" alt="">
+                            <div class="ex-itemname">플로럴</div>
+                        </div>
+                        <div class="ex-item">
+                            <img src="" alt="">
+                            <div class="ex-itemname">프레쉬</div>
+                        </div>
+                        <div class="ex-item">
+                            <img src="" alt="">
+                            <div class="ex-itemname">우디</div>
+                        </div>
+                        <div class="ex-item">
+                            <img src="" alt="">
+                            <div class="ex-itemname">오퓰런트</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-ofl">Compare our Fragrances</div>
+                <div class="fr-carousel">
+                    <div class="button-container">
+                        <button class="fr-prev"></button>
+                        <button class="fr-next"></button>
+                    </div>
+                    <div class="fr-container">
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Tacit.png" alt="테싯"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Karst.png" alt="카르스트"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Eremia.png" alt="에레미야"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Gloam.png" alt="글롬"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Rozu.png" alt="로즈"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Marrakech.png" alt="마라케시"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Hwyl.png" alt="휠"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Eidesis.png" alt="이더시스"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Miraceti.png" alt="미라세티"></div>
+                        <div class="fr-cell"><img src="${path2 }/resources/images/product/fragrance/Ouranon.png" alt="우라논"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                const container = $('.fr-container');
+                const cells = $('.fr-cell');
+                const cellWidth = cells.outerWidth();
+                const totalCells = cells.length;
+                let currentIndex = 0; // 첫 번째 이미지를 가장 처음 위치로 고정
+    
+                function updateOpacity() {
+                    cells.each(function(index) {
+                        $(this).find('img').css('opacity', index === currentIndex ? '1' : '0.5');
+                    });
+                }
+    
+                function updateCarousel() {
+                    const offset = -(currentIndex * cellWidth - ($('.fr-carousel').width() / 2 - cellWidth / 2));
+                    container.css('transform', 'translateX(' + offset + 'px)');
+                    updateOpacity();
+                }
+    
+                $('.fr-prev').click(function() {
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : 0;
+                    updateCarousel();
+                });
+    
+                $('.fr-next').click(function() {
+                    currentIndex = (currentIndex < totalCells - 1) ? currentIndex + 1 : totalCells - 1;
+                    updateCarousel();
+                });
+    
+                updateCarousel(); // 초기 상태 업데이트
+            });
+        </script>
+    </div>
+</body>
+</html>
