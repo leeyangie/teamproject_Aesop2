@@ -5,17 +5,85 @@ body {
     font-family: "Noto Sans KR", sans-serif;
     color:#252525;
     font-size: 14px;
+    overflow-x: hidden;
 }
+
+header { width: 100%;}
 
 li { list-style: none;}
 
 a { text-decoration: none; color: #252525;}
 .content { 
-    width: 100vw; 
+    width: 100%; 
     overflow-x: hidden; 
     background-color: #FFFEF2;
-    overflow-y: scroll;
-    z-index: 1;
+}
+
+.chat_wrap { 
+	width: 50px;
+    height: 50px;
+    background-color: #252525;
+    border: 1px solid #000;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.chat_icon {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.chat_window {
+	display: none;
+	position: absolute;
+	bottom: 50px;
+    right: 50px;
+}
+
+/* Modal styles */
+#chatModal {
+	display:none;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: content-box;
+    bottom: 0;
+    right: 0;
+}
+
+/* #chatModal::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+} */
+
+#chatModal #close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+	z-index: 1000;    
 }
 
 .text-ofl { 
@@ -37,7 +105,7 @@ a { text-decoration: none; color: #252525;}
     height: 100px; 
     align-items: center;
     justify-content: space-between;
-    background-color: transparent;
+    background-color: #d69975;
 }
 
 .header_wrapper {
@@ -47,6 +115,7 @@ a { text-decoration: none; color: #252525;}
     top: 0px;
     transition: top 0.2s ease-in-out;
     position: fixed;
+    
 }
 
 .nav-up {
@@ -56,11 +125,6 @@ a { text-decoration: none; color: #252525;}
 
 .nav-down {
     background-color: #d69975; /* 원하는 배경색 지정 */
-}
-
-.transparent {
-    background: transparent;
-    transition: 0.5s;
 }
 
 #logo_wrap { 
@@ -82,27 +146,42 @@ a { text-decoration: none; color: #252525;}
 }
 
 #tnb { 
-    width: 240px;
+    width: 340px;
     min-width: 230px;
     padding-right: 20px;
+    justify-content: flex-end;
 }
 
 #mainmenu { display: flex;}
 
 .menu { 
-    margin-right: 25px;
+    padding: 0 10px;
     font-size: 15px;
     font-weight: 400;
     color: #FFFEF2;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
 }
+.menu:hover { border-bottom: 3px solid #FFFEF2;}
+.menu.active { border-bottom: 3px solid #FFFEF2;}
 
 #topmenu { display: flex;}
 
 .topitem { 
-    margin-right: 25px;
+    padding: 0 10px;
     font-size: 15px; 
     font-weight: 400;
     color: #FFFEF2;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+}
+
+.topitem:hover {
+	border-bottom: 3px solid #FFFEF2;
 }
 
 footer { bottom: 0;}

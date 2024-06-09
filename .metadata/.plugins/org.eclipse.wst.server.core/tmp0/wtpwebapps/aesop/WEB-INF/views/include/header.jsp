@@ -10,28 +10,49 @@
 	        <a href="${path0}"><div id="logo_imgwrap"><img src="${path0}/resources/images/main/image_logo.png" alt="로고"></div></a>
 	    </div>
 	    <nav id="gnb">
-	        <ul id="mainmenu">
-	            <a href="${path0 }/product/list.do?category=s"><li class="menu">스킨케어</li></a>
-	            <a href="${path0 }/product/list.do?category=b"><li class="menu">바디&핸드</li></a>
-	            <a href="${path0 }/product/list.do?category=h1"><li class="menu">홈</li></a>
-	            <a href="${path0 }/product/list.do?category=h2"><li class="menu">헤어</li></a>
-	            <a href="${path0 }/product/test.do"><li class="menu">향수</li></a>
-	            <a href="${path0 }/product/list.do?category=k"><li class="menu">키트&트레블</li></a>
-	            <a href=""><li class="menu">읽기</li></a>
-	            <a href=""><li class="menu">스토어</li></a>
-	            <a href=""><li class="menu">게시판</li></a>
-	            <a href=""><li class="menu">검색</li></a>
-	        </ul>
-	    </nav>
+            <ul id="mainmenu">
+                <c:set var="currentCategory" value="${param.category}" />
+                <a href="${path0 }/product/listAll.do?category=s">
+                    <li class="menu <c:if test='${currentCategory == "s"}'>active</c:if>">스킨케어</li>
+                </a>
+                <a href="${path0 }/product/listAll.do?category=b">
+                    <li class="menu <c:if test='${currentCategory == "b"}'>active</c:if>">바디&핸드</li>
+                </a>
+                <a href="${path0 }/product/listAll.do?category=h1">
+                    <li class="menu <c:if test='${currentCategory == "h1"}'>active</c:if>">홈</li>
+                </a>
+                <a href="${path0 }/product/listAll.do?category=h2">
+                    <li class="menu <c:if test='${currentCategory == "h2"}'>active</c:if>">헤어</li>
+                </a>
+                <a href="${path0 }/product/listAll.do?category=p">
+                    <li class="menu <c:if test='${currentCategory == "p"}'>active</c:if>">향수</li>
+                </a>
+                <a href="${path0 }/product/listAll.do?category=k">
+                    <li class="menu <c:if test='${currentCategory == "k"}'>active</c:if>">키트&트레블</li>
+                </a>
+                <a href="">
+                    <li class="menu">읽기</li>
+                </a>
+                <a href="">
+                    <li class="menu">스토어</li>
+                </a>
+                <a href="">
+                    <li class="menu">게시판</li>
+                </a>
+                <a href="${path0 }/product/test.do">
+                    <li class="menu">검색</li>
+                </a>
+            </ul>
+        </nav>
 	    <nav id="tnb">
 	        <ul id="topmenu">
 	        <c:if test="${semail.equals('admin@aesop.com')}">
-        		<a href=""><li class="topitem">관리자 페이지</li></a>
-    	</c:if>
+        		<a href="${path0}/admin/testadmin.do"><li class="topitem">관리자 페이지</li></a>
+    		</c:if>
 	        <c:if test="${!empty semail}">
-	            <a href="${path1}/member/mypage.do"><li class="topitem">로그아웃</li></a>
-	            <a href="${path1}/member/wishList.do"><li class="topitem">위시리스트</li></a>
-	            <a href="${path1}/member/cart.do"><li class="topitem">카트</li></a>
+	            <a href="${path0}/member/logout.do"><li class="topitem">로그아웃</li></a>
+	            <a href="${path0}/member/wishList.do"><li class="topitem">위시리스트</li></a>
+	            <a href="${path0}/member/cart.do"><li class="topitem">카트</li></a>
 	        </c:if>
 	        <c:if test="${empty semail}">
 	            <a href="${path0}/member/login.do"><li class="topitem">로그인</li></a>

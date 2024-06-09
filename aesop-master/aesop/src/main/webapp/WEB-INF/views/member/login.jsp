@@ -32,7 +32,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 90px;
 
         }
 
@@ -126,33 +126,34 @@
 		<main>
             <div id="login-fullwrap">
                 <div id="login-window">
-                    <form action="${path2 }/member/loginPro.do" method="post" name="loginForm"></form>
-                    <table id="login-table">
-                        <tbody>
-                            <tr >
-                                <td colspan="2" id="text24">로그인</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><input type="text" name="id" id="id" placeholder="아이디" autofocus required class="login-input"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><input type="password" name="pw" id="pw" placeholder="비밀번호" required class="login-input"></td>
-                            </tr>
-                            <tr>
-                                <td><button type="submit" class="square-button">로그인</button></td>
-                                <td><button type="reset" class="square-button-fa">취소</button></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2" class="text18">회원이 아니신가요?</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">회원가입을 통해 주문 내역을 확인하고, 위시리스트에 관심 제품을 저장하거나, 저장된 정보를 사용하여 더 빠른 온라인 결제 경험을 즐기실 수 있습니다.</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"><button type="button" class="square-button-fa2" onclick="redirectToJoin()">회원가입</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <form action="${path2 }/member/loginPro.do" method="post" name="loginForm">
+	                    <table id="login-table">
+	                        <tbody>
+	                            <tr >
+	                                <td colspan="2" id="text24">로그인</td>
+	                            </tr>
+	                            <tr>
+	                                <td colspan="2"><input type="text" name="email" id="email" placeholder="아이디" autofocus required class="login-input"></td>
+	                            </tr>
+	                            <tr>
+	                                <td colspan="2"><input type="password" name="pw" id="pw" placeholder="비밀번호" required class="login-input"></td>
+	                            </tr>
+	                            <tr>
+	                                <td><button type="submit" class="square-button">로그인</button></td>
+	                                <td><button type="reset" class="square-button-fa">취소</button></td>
+	                            </tr>
+	                            <tr>
+	                                <td colspan="2" class="text18">회원이 아니신가요?</td>
+	                            </tr>
+	                            <tr>
+	                                <td colspan="2">회원가입을 통해 주문 내역을 확인하고, 위시리스트에 관심 제품을 저장하거나, 저장된 정보를 사용하여 더 빠른 온라인 결제 경험을 즐기실 수 있습니다.</td>
+	                            </tr>
+	                            <tr>
+	                                <td colspan="2"><button type="button" class="square-button-fa2" onclick="redirectToJoin()">회원가입</button></td>
+	                            </tr>
+	                        </tbody>
+	                    </table>
+                    </form>
                 </div>
             </div>
             <script>

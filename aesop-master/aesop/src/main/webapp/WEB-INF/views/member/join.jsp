@@ -26,24 +26,24 @@
 
         #join-window {
             width: 560px;
-            height: 85%;
+            height: 80%;
             background-color: #FFFEF2;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 50px;
+            margin-top: 80px;
 
         }
 
         #join-table {
             clear: both;
             width: 400px;
-            height: 700px;
+            height: 640px;
         }
 
         .join-input {
             border: 0;
-            line-height: 3em;
+            line-height: 2em;
             border-bottom: 1px solid #C5C5C5;
             background-color: transparent;
             width: 400px;
@@ -119,11 +119,12 @@
             width: 400px;
             height: 70px;
             overflow-y:auto;
-            border: 1px solid #252525;            
+            border: 1px solid #252525;
+            font-size: 13px;            
         }
 
         .form-check-label { 
-            line-height: 3em;
+            line-height: 2em;
         }
 	</style>
 </head>
@@ -226,12 +227,25 @@
 					        var email = document.getElementById("email").value.trim();
 					        var pw = document.getElementById("pw").value.trim();
 					        var pw2 = document.getElementById("pw2").value.trim();
-					
+
+					        // 비밀번호 패턴 검사
+					        var pwPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,12}$/;
+					        if (!pwPattern.test(pw)) {
+					            alert("비밀번호는 8-12자 사이의 문자, 숫자, 특수 문자 조합이어야 합니다.");
+					            return false;
+					        }
+
+					        // 비밀번호와 비밀번호 확인 일치 여부 확인
+					        if (pw !== pw2) {
+					            alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+					            return false;
+					        }
+
 					        // 각 필드가 비어 있는지 확인
 					        if (name === "" || email === "" || pw === "" || pw2 === "") {
 					            return false;
 					        }
-					
+
 					        return true;
 					    }
 					</script>
