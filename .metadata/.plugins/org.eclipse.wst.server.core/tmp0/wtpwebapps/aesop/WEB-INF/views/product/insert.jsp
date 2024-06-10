@@ -176,8 +176,8 @@
 	                                <button type="submit" class="square-button">상품 등록</button>
 	                                <button type="button" class="square-button-fa">상품 목록</button>
 	                            </div>
-	                        </div>
-	                    </form>
+	                    	</form>
+                    	</div>
 	                </div>
 	            </section>
 		</main>
@@ -226,11 +226,10 @@
                subCategorySelect.innerHTML += '<option value="4">그루밍</option>';
                break;
            case "p": //향수
-           	subCategorySelect.innerHTML += '<option value="1">우라논</option>';
-               subCategorySelect.innerHTML += '<option value="2">글롬</option>';
-               subCategorySelect.innerHTML += '<option value="3">이더시스</option>';
-               subCategorySelect.innerHTML += '<option value="4">미라세티</option>';
-               subCategorySelect.innerHTML += '<option value="5">카르스트</option>';
+           	subCategorySelect.innerHTML += '<option value="1">플로럴</option>';
+               subCategorySelect.innerHTML += '<option value="2">프레쉬</option>';
+               subCategorySelect.innerHTML += '<option value="3">우디</option>';
+               subCategorySelect.innerHTML += '<option value="4">오큘런트</option>';
                break;
            case "k": //키트&트래블
            	subCategorySelect.innerHTML += '<option value="1">시즈널 기프트 키트</option>';

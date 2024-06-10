@@ -196,6 +196,25 @@
         .fr-prev:focus, .fr-next:focus {
             outline: none;
         }
+        #page2 {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		height: 120px;
+		width: 100%;
+		background-color: #EBE2D5;
+		padding-top: 80px;
+		padding-left : 50px;
+		}
+		
+		.round-button { 
+		    width: 110px;
+		    height: 30px;
+		    border-radius: 50px;
+		    line-height: 2em;
+		    border: 1px solid #252525;
+		    margin-top: 20px;
+		    text-align: center;
+		}
         .round-button2 { 
 		    width: 110px;
 		    height: 30px;
@@ -391,7 +410,17 @@
                             </li>
                         </ul>
                 </div>
-
+            <section class="page" id="page1">
+            	<div class="fr-imgwrap"><img alt="프레그런스" src="storefind.png"></div>
+            </section>
+            
+			<section class="page" id="page2">
+    			<div><p class="text-play" style="margin-left: 50px">For additional assistance</p></div>
+    			<div>
+    				<p>제품 선택에 보다 자세한 조언이 필요하시면 문의하기를 통해 도움을 받으세요.</p>
+    				<div class="round-button">문의하기 </div>
+    			</div>	    			
+    		</section>
         </main>
         <footer>
 			<jsp:include page="../include/footer.jsp"></jsp:include>
